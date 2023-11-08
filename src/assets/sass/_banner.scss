@@ -1,0 +1,107 @@
+.bannerBox {
+    background-image: url(../img/banner/BG-index.jpg);
+    background-size: cover;
+
+    .banner {
+        margin-bottom: 13px;
+    }
+
+    .TTLbox {
+        width: 100% !important;
+        height: 1px !important;
+
+        &>canvas {
+            width: 90% !important;
+        }
+
+    }
+
+    .TTL02 {
+        position: relative;
+        left: 15px;
+        top: -50px;
+    }
+
+    .hand {
+        position: relative;
+        bottom: -10px;
+
+        .hand2 {
+            position: relative;
+            left: -7vw;
+            bottom: -15vh;
+        }
+
+        .hand1 {
+            position: absolute;
+            right: -35px;
+            bottom: -10px;
+        }
+
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:959px) {
+    .bannerBox {
+        .TTLbox {
+            position: relative;
+            top: 20vh;
+            height: 20vh !important;
+            min-height: 300px;
+        }
+
+        .hand {
+            bottom: 35px;
+
+            .hand1 {
+                right: 15px;
+            }
+
+            .hand2 {
+                position: relative;
+                left: -7vw;
+                bottom: -30vh;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:599px) {
+    .bannerBox {
+        .banner {
+            margin-bottom: 0;
+            height: 600px;
+        }
+
+        .TTLbox {
+            position: relative;
+            top: 16vh;
+            min-height: 200px;
+
+            &>canvas {
+                padding-right: 10px;
+                width: 100% !important;
+            }
+        }
+
+        .hand {
+            transform: scale(0.7);
+            bottom: 60px;
+
+            .hand2 {
+                left: -120px;
+                bottom: -250px;
+                opacity: 0.5;
+                transform: scale(1.2) !important;
+            }
+
+            .hand1 {
+                right: -50px;
+                bottom: -14vh;
+                // right: 10px;
+                // bottom: -48px;
+            }
+        }
+
+    }
+}

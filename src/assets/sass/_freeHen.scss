@@ -1,0 +1,179 @@
+// 解放母雞
+.freeHen {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-size: cover;
+  }
+
+  &::before {
+    left: 70vw;
+    top: -20px;
+    width: 785px;
+    height: 435px;
+    background-image: url(../img/chicken/chicken02.png);
+  }
+
+  &::after {
+    left: 15vw;
+    top: -100px;
+    width: 135px;
+    height: 155px;
+    background-image: url(../img/chicken/chicken01.png);
+    transform: rotate(0deg);
+  }
+
+  .youtobe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    margin-bottom: 70px;
+  }
+
+  .item {
+    position: relative;
+    margin-bottom: 50px;
+
+    > .row {
+      overflow: hidden;
+      border-radius: 30px;
+      z-index: 2;
+    }
+
+    &:nth-of-type(odd) .carTitle {
+      background-color: $-mainColor5;
+    }
+
+    &:nth-of-type(even) .carTitle {
+      background-color: $-mainColor4;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: -12px;
+      bottom: -12px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid $-mainColor1;
+      border-radius: 30px;
+      z-index: 1;
+    }
+
+    .carTitle {
+      color: $-mainColor1;
+      font-size: 1.7rem;
+      padding: 10px 20px;
+
+      svg {
+        margin-bottom: 5px;
+      }
+    }
+
+    .carList {
+      background-color: #eaeaea;
+      padding: 30px 40px;
+
+      p {
+        width: 100%;
+        padding: 0 20px;
+        @extend %transition3s;
+
+        span {
+          display: inline-block;
+          width: 94%;
+          font-size: 21px;
+          @extend %txtOver;
+
+          &:before {
+            content: '●';
+            margin-right: 10px;
+            font-size: 10px;
+          }
+
+          + svg,
+          &:before {
+            color: $-mainColor4;
+            @extend %transition3s;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 9999px) {
+  .freeHen .item {
+    .carTitle .fa-1x {
+      font-size: 3.5rem !important;
+    }
+    .carList p {
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s;
+        background-color: #f0e1c9;
+        border-radius: 40px;
+
+        svg {
+          transition: all 0.3s;
+          margin-right: -15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 959px) {
+  .freeHen {
+    &::after {
+      left: 5vw;
+      top: -87px;
+      width: 115px;
+      height: 130px;
+    }
+
+    &::before {
+      width: 555px;
+      height: 240px;
+    }
+
+    .item {
+      .carTitle svg {
+        margin: 0 15px 0 0;
+      }
+
+      .carList {
+        padding: 16px 0px;
+      }
+    }
+
+    .youtobe {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .freeHen {
+    .item {
+      .carTitle {
+        font-size: 1.4rem;
+      }
+      .carList p span {
+        font-size: 17px;
+        & + svg {
+          font-size: 1.4em;
+        }
+      }
+    }
+  }
+}

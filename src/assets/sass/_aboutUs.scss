@@ -1,0 +1,31 @@
+//關於我們
+.aboutUs {
+  font-size: 1.1rem;
+  color: $-mainColor2;
+  .txt {
+    @extend %mwSm;
+    padding: 0 30px;
+  }
+  p a {
+    text-decoration: underline !important;
+  }
+  a {
+    color: $-mainColor2 !important;
+    &:hover {
+      color: $-mainColor1 !important;
+    }
+  }
+  .socialMedia {
+    margin: 100px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .aboutUs .socialMedia {
+    margin-top: 50px;
+    svg {
+      font-size: 1.5em;
+    }
+  }
+}

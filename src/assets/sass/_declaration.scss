@@ -1,0 +1,151 @@
+// 母雞自由宣言
+.declaration {
+  .goOn {
+    position: relative;
+    color: #941b23;
+    top: -80px;
+    animation: goOn 2s ease-in infinite;
+  }
+
+  @keyframes goOn {
+    0% {
+      top: -80px;
+    }
+
+    50% {
+      top: -40px;
+    }
+
+    100% {
+      top: -80px;
+    }
+  }
+
+  .title {
+    letter-spacing: 7px !important;
+    margin-bottom: 15px;
+  }
+
+  .slogan {
+    color: $-mainColor4;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 70px;
+
+    span {
+      position: relative;
+      width: 100%;
+      letter-spacing: 6px !important;
+      line-height: 1.8;
+
+      svg {
+        position: absolute;
+        color: $-mainColor3;
+
+        &.fa-quote-left {
+          left: -70px;
+          top: 0;
+        }
+
+        &.fa-quote-right {
+          right: -70px;
+          bottom: -10px;
+        }
+      }
+    }
+  }
+  .test.slogan {
+    color: $-mainColor4;
+    font-size: $size55;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    span {
+      position: relative;
+      width: 100%;
+      letter-spacing: 10px !important;
+      line-height: 2.4;
+
+      svg {
+        position: absolute;
+        color: $-mainColor3;
+
+        &.fa-quote-left {
+          left: -70px;
+          top: 0;
+        }
+
+        &.fa-quote-right {
+          right: -70px;
+          bottom: -10px;
+        }
+      }
+    }
+  }
+  .item {
+    padding: 0 20px;
+    font-size: $size30;
+    margin-bottom: 60px;
+
+    svg {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 959px) {
+  .declaration {
+    .slogan {
+      font-size: 2.1rem;
+      margin-bottom: 40px;
+
+      span {
+        letter-spacing: 2px !important;
+
+        svg {
+          &.fa-quote-left {
+            left: -9vw;
+          }
+
+          &.fa-quote-right {
+            right: -7vw;
+          }
+        }
+      }
+    }
+
+    .item {
+      margin-bottom: 20px !important;
+      font-size: 1.1rem;
+
+      .fa-2x {
+        font-size: 1.5em;
+        padding-top: 7px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .declaration {
+    padding-bottom: 150px;
+
+    .title {
+      letter-spacing: 6px !important;
+    }
+
+    .slogan {
+      font-size: 6vw;
+    }
+
+    .item .fa-2x {
+      font-size: 1.6em;
+      margin-right: 10px;
+      padding-top: 7px;
+    }
+
+    .subTitle {
+      margin-top: 20px;
+    }
+  }
+}

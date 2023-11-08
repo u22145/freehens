@@ -1,0 +1,191 @@
+//顏色
+$-mainColor1: #ffffff;
+$-mainColor2: #d2b999;
+$-mainColor3: #edae33;
+$-mainColor4: #a81e22;
+$-mainColor5: #212121;
+//字體
+$font: 'Noto Sans TC', sans-serif !important;
+$size70: 4rem;
+$size55: 3rem;
+$size40: 2rem;
+$size30: 1.3rem;
+$w100: 100%;
+
+%transition3s {
+  transition: all 0.3s;
+}
+
+//寬度
+%mwMd {
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+%mwSm {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+%itemSvg {
+  margin-bottom: 20px; // svg 下間距
+}
+
+%txtOver {
+  overflow: hidden; // 字數超過變點點點
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#app {
+  font-family: $font;
+  line-height: 1.8;
+
+  .v-app-bar.v-app-bar--fixed {
+    background-color: hsla(0deg, 0%, 0%, 60%);
+
+    #logo {
+      font-size: 25px;
+      padding: 0 !important;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 115;
+  background-color: hsla(0deg, 0%, 0%, 95%);
+  width: 100vw;
+  height: 100vh;
+  // background-image: url(./assets/img/nav/grass.png);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 20%;
+
+  > svg {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    color: $-mainColor3;
+    @extend %transition3s;
+
+    &:hover {
+      cursor: pointer;
+      color: $-mainColor1;
+      @extend %transition3s;
+    }
+  }
+
+  a {
+    letter-spacing: 3px;
+    line-height: 1.5;
+    color: $-mainColor3 !important;
+    font-weight: 600;
+    font-size: 30px;
+    text-decoration: none;
+    text-align: center;
+    @extend %transition3s;
+
+    &::after {
+      content: '';
+      position: relative;
+      top: -20px;
+      left: -5%;
+      display: block;
+      bottom: -2px;
+      width: 110%;
+      height: 20px;
+      border-radius: 40px;
+      z-index: -1;
+      border: 2px solid $-mainColor4;
+      @extend %transition3s;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $-mainColor1 !important;
+      @extend %transition3s;
+
+      &::after {
+        @extend %transition3s;
+        top: -5px;
+        height: 8px;
+        background-color: $-mainColor4;
+      }
+    }
+  }
+}
+
+.socialMedia {
+  padding-top: 5vh;
+  color: $-mainColor3;
+
+  & > a {
+    display: inline-block;
+    padding: 0;
+    width: 30vw;
+    max-width: 200px;
+    text-align: center;
+    font-size: 18px;
+    &::after {
+      display: none;
+    }
+    svg {
+      @extend %transition3s;
+      &:hover {
+        @extend %transition3s;
+        color: $-mainColor1;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: #edae33;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px !important;
+
+  a {
+    font-size: 14px !important;
+    padding: 0 !important;
+  }
+}
+
+.v-main {
+  padding: 0 !important;
+}
+
+#logo,
+.menu svg {
+  color: $-mainColor3;
+  @extend %transition3s;
+
+  &:hover {
+    cursor: pointer;
+    color: $-mainColor1;
+    @extend %transition3s;
+  }
+}
+
+.container {
+  @extend %mwMd;
+}
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .nav {
+    a::after {
+      top: -10px;
+      height: 10px;
+    }
+    .socialMedia a {
+      padding: 0 !important;
+      font-size: 14px !important;
+    }
+  }
+}

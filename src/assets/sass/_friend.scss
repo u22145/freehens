@@ -1,0 +1,246 @@
+//參與盟友
+.friend {
+  &.bgColor1::after{
+    display: none;
+  }
+  //朋友輪播
+  .friendSwiper {
+    .friendList {
+      padding: 0 55px;
+    }
+
+    .swiper-slide {
+      padding: 0 10px;
+
+      &:last-child:hover {
+        .imgBox {
+          @extend %transition3s;
+          border: 10px solid #d2b999;
+        }
+
+        p {
+          @extend %transition3s;
+          color: $-mainColor4;
+
+        }
+      }
+    }
+
+    // 大頭照
+    .imgBox {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid $-mainColor2;
+      @extend %transition3s;
+    }
+
+    strong {
+      font-weight: 900;
+      font-size: $size30;
+    }
+
+    p {
+      @extend %transition3s;
+      margin-bottom: 0px;
+      word-break: break-all;
+      text-align: center;
+    }
+    .v-image__image--contain {
+      background-size: cover;
+  }
+    //左右按鈕顏色、$paginationColor、$paginationActiveColor
+    @include swiperSet($-mainColor3, $-mainColor1, $-mainColor4);
+  }
+
+  .subTitle {
+    margin-bottom: 30px;
+  }
+
+  //跑馬燈
+  marquee {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: $-mainColor5;
+    span>span{
+      margin-right: 200px;
+    }
+    &.test {
+      font-size: 4rem;
+    }
+
+    &+marquee {
+      color: $-mainColor3;
+      margin-bottom: 70px;
+    }
+  }
+
+  //母雞圖片
+  .henCage {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .chicken3 {
+      //母雞
+      filter: brightness(0.4);
+      display: flex;
+      justify-content: center;
+
+      @for $i from 1 through 3 {
+        .CageImg#{$i} {
+          transform: scale(0.9);
+          width: 100%;
+          animation: CageImg#{$i} .5s cubic-bezier(.29, .81, 1, 1.03) infinite;
+          animation-delay: random() + s;
+
+          @keyframes CageImg#{$i} {
+
+            0%,
+            100% {
+              transform: translateY(0) rotateX(0deg);
+            }
+
+            80% {
+              transform: translateY(15px) rotateX(15deg);
+            }
+          }
+        }
+      }
+    }
+
+    .henCageImg {
+      //籠子
+      position: absolute;
+      left: 0;
+      top: 20px;
+    }
+
+    &.submitForm {
+      &[data-aos^=fade][data-aos^=fade] {
+        opacity: 1 !important;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .chicken3 {
+        //母雞
+        animation: submitHen 3s 3.2s forwards;
+
+        img[class^='CageImg'] {
+          transform: scale(0.9);
+          animation: submitHenImg 4s 3.2s cubic-bezier(.18, .47, .14, .68) forwards;
+        }
+      }
+
+      .henCageImg {
+        //籠子
+        animation: submitCageImg 4s 3.2s forwards;
+      }
+    }
+  }
+
+
+
+  @keyframes submitHen {
+    from {
+      filter: brightness(0.4);
+    }
+
+    to {
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes submitHenImg {
+
+    0%,
+    100% {
+      transform: translateY(0) rotateX(0deg) scale(0.9);
+    }
+
+    20% {
+      transform: translateY(-50px) rotateX(-15deg) scale(0.9);
+    }
+
+    30% {
+      transform: translateY(0px) rotateX(0deg) scale(0.9);
+    }
+
+    45% {
+      transform: translateY(-20px) rotateX(-10deg) scale(0.9);
+    }
+  }
+
+  @keyframes submitCageImg {
+    from {
+      top: 0;
+      opacity: 1;
+    }
+
+    to {
+      top: -500px;
+      opacity: 0;
+    }
+  }
+
+  //表單標題
+  .formTitle {
+    color: $-mainColor4;
+    letter-spacing: 7px !important;
+    margin-bottom: 15px;
+
+    >p {
+      font-size: $size30;
+      color: $-mainColor5;
+      padding-top: 45px;
+      font-weight: 100;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 959px) {
+  .friend {
+    .henCage {
+      padding: 0;
+      transform: scale(2) translateY(80px) !important;
+      margin-bottom: 30vh;
+    }
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 599px) {
+  .friend {
+    .henCage {
+      transform: scale(3) translateY(35px) !important;
+
+      .henCageImg {
+        top: 13px;
+      }
+    }
+
+    //朋友輪播
+    .friendSwiper .swiper-slide {
+      padding: 0;
+
+      a {
+        padding: 0 !important;
+      }
+    }
+
+    .formTitle {
+      letter-spacing: 0px !important;
+      padding-top: 50px;
+    }
+
+    .decoration.round::after {
+      left: -5px !important;
+    }
+
+    marquee {
+      font-size: 3rem;
+    }
+  }
+}

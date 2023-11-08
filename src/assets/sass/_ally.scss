@@ -1,0 +1,96 @@
+.allyPage {
+  background-image: url(../img/paper1.jpg);
+  background-repeat: repeat;
+  padding: 50px 10px;
+  min-height: 90vh;
+
+  .v-tabs-bar {
+    height: auto;
+  }
+
+  .v-slide-group__wrapper {
+    display: block;
+
+    .v-slide-group__content {
+      flex-wrap: wrap;
+    }
+  }
+
+  >div {
+    @extend %mwMd;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .btnBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .btn {
+      color: $-mainColor3 !important;
+      border: 2px solid $-mainColor3;
+      border-radius: 20px;
+      line-height: 1.6;
+      padding: 8px 18px;
+      margin: 0 10px 10px 0;
+      @extend %transition3s;
+
+      &.v-tab--active {
+        background-color: $-mainColor3;
+        color: $-mainColor1 !important;
+      }
+    }
+  }
+
+  .illustrate {
+    font-size: 0.9rem;
+  }
+
+  .imgGridBox {
+    padding: 0 20px;
+
+    .row>div {
+      margin-bottom: 30px;
+    }
+
+    .imgBox {
+      width: 100%;
+
+      .v-image {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 50%;
+        border: 3px solid #d2b999 !important;
+      }
+
+    }
+
+    strong {
+      font-weight: 900;
+      font-size: $size30;
+    }
+
+    p {
+      @extend %transition3s;
+      margin-bottom: 0px;
+      line-height: 1.5;
+      word-break: break-all;
+      text-align: center;
+    }
+  }
+
+
+
+  @media screen and (min-width: 960px) and (max-width: 9999px) {
+    .btnBox .btn:hover {
+      cursor: pointer;
+      transition: all 0.3s;
+      background-color: #ffedc9;
+      color: #edae33 !important;
+    }
+  }
+
+
+}

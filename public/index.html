@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>讓母雞自由倡議平台</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <meta name="description" content="讓母雞自由，廢除格子籠！台灣3700萬隻格子籠母雞，長期被囚禁在惡劣的環境產蛋，不只不人道，更影響你我的健康。請和我們一起讓母雞自由，讓台灣向友善飼養邁進。">
+  <meta name="keywords" content="讓母雞自由,蛋雞,讓母雞飛,格子籠,母雞自由,友善動物,動物福利,母雞,雞蛋">
+  <meta name="author" content="讓母雞自由倡議平台">
+  <meta property="og:title" content="讓母雞自由倡議平台" />
+  <meta property="og:image" content="https://hulk.iprefer.com.tw/FreeHens/sharing2.jpg" />
+  <meta property="og:url" content="https://hulk.iprefer.com.tw/FreeHens/" />
+  <meta property="og:description"
+    content="讓母雞自由，廢除格子籠！台灣3700萬隻格子籠母雞，長期被囚禁在惡劣的環境產蛋，不只不人道，更影響你我的健康。請和我們一起讓母雞自由，讓台灣向友善飼養邁進。" />
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="TTL.js?1680161676706"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXHQ7V4NBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-LXHQ7V4NBD');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5853S9Z');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script>
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+    function init() {
+      canvas = document.getElementById("canvas");
+      anim_container = document.getElementById("animation_container");
+      dom_overlay_container = document.getElementById("dom_overlay_container");
+      var comp = AdobeAn.getComposition("13158F3F750AB048ABFDB94EED3A09B7");
+      var lib = comp.getLibrary();
+      var loader = new createjs.LoadQueue(false);
+      loader.addEventListener("fileload", function (evt) {
+        handleFileLoad(evt, comp)
+      });
+      loader.addEventListener("complete", function (evt) {
+        handleComplete(evt, comp)
+      });
+      var lib = comp.getLibrary();
+      loader.loadManifest(lib.properties.manifest);
+    }
+
+    function handleFileLoad(evt, comp) {
+      var images = comp.getImages();
+      if (evt && (evt.item.type == "image")) {
+        images[evt.item.id] = evt.result;
+      }
+    }
+
+    function handleComplete(evt, comp) {
+      //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+      var lib = comp.getLibrary();
+      var ss = comp.getSpriteSheet();
+      var queue = evt.target;
+      var ssMetadata = lib.ssMetadata;
+      for (i = 0; i < ssMetadata.length; i++) {
+        ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+          "images": [queue.getResult(ssMetadata[i].name)],
+          "frames": ssMetadata[i].frames
+        })
+      }
+      exportRoot = new lib.TTL();
+      stage = new lib.Stage(canvas);
+      //Registers the "tick" event listener.
+      fnStartAnimation = function () {
+        stage.addChild(exportRoot);
+        createjs.Ticker.framerate = lib.properties.fps;
+        createjs.Ticker.addEventListener("tick", stage);
+      }
+      //Code to support hidpi screens and responsive scaling.
+      AdobeAn.makeResponsive(true, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
+      AdobeAn.compositionLoaded(lib.properties.id);
+      fnStartAnimation();
+    }
+  </script>
+</head>
+
+<body style="overflow-x:hidden;" >
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5853S9Z" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+  </noscript>
+  <div id="app"></div>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+</body>
+
+</html>
